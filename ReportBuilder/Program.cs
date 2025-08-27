@@ -1,4 +1,5 @@
-﻿using ReportBuilder;
+﻿using System.Diagnostics;
+using ReportBuilder;
 using ReportBuilder.Interfaces;
 using ReportBuilder.ReportCreators;
 
@@ -36,9 +37,16 @@ var reportController = new ReportController(
     reportCreators);
 #endregion
 
+var sw = Stopwatch.StartNew();
 #region Report
+var swCreate = Stopwatch.StartNew();
 reportController.Create();
+swCreate.Stop();
+var swPrint = Stopwatch.StartNew();
 reportController.Print();
+swPrint.Stop();
 #endregion
+sw.Stop();
+Console.WriteLine($"{sw.Elapsed}");
 
 return 0;

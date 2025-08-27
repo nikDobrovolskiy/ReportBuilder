@@ -1,4 +1,5 @@
-﻿using ReportBuilder.Interfaces;
+﻿using System.Diagnostics;
+using ReportBuilder.Interfaces;
 using ReportBuilder.Types;
 
 namespace ReportBuilder;
@@ -34,7 +35,8 @@ public class ReportController
     public void Create()
     {
         using ISessionSource sourceData = new SessionSource(_connectionString);
-        Session? session;
+        Session? session; 
+        var sw = Stopwatch.StartNew();
         foreach (var data in sourceData.GetItem())
         {
             session = _inputDataConverter.Convert(data);
@@ -48,8 +50,9 @@ public class ReportController
                 sessionReportCreator.Add(session);
             }
         }
+        sw.Stop();
     }
-    
+
     /// <summary>
     /// Выводит отчёты.
     /// </summary>
@@ -57,7 +60,9 @@ public class ReportController
     {
         foreach (var sessionReportCreator in _reportCreators)
         {
+            var sw = Stopwatch.StartNew();
             sessionReportCreator.Print();
+            sw.Stop();
         }
     }
 }

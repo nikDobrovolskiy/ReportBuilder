@@ -21,14 +21,14 @@ namespace ReportBuilder.Tests
                 "",
                 name,
                 "Готов",
-                0);
+                1);
             var session2 = new Session(
                 DateTime.Now,
                 DateTime.Now,
                 "",
                 name,
                 "Готов",
-                0);
+                1);
 
             // ACT
             sut.Add(session1);
@@ -55,14 +55,14 @@ namespace ReportBuilder.Tests
                 "",
                 name,
                 "Готов",
-                0);
+                1);
             var session2 = new Session(
                 DateTime.Now,
                 DateTime.Now,
                 "",
                 name,
                 "Пауза",
-                0);
+                1);
 
             // ACT
             sut.Add(session1);
@@ -90,14 +90,14 @@ namespace ReportBuilder.Tests
                 "",
                 "Иванов Иван",
                 "Готов",
-                0);
+                1);
             var session2 = new Session(
                 DateTime.Now,
                 DateTime.Now,
                 "",
                 "Неиванов Неиван",
                 "Готов",
-                0);
+                1);
 
             // ACT
             sut.Add(session1);

@@ -31,9 +31,9 @@ public class OperatorStatesCounterReportCreator : ISessionReportCreator
 
         _nameCounter.TryAdd(operatorName, _stateTypes.ToDictionary());
 
-        if (!_nameCounter[operatorName].TryAdd(state, 1))
+        if (!_nameCounter[operatorName].TryAdd(state, session.Duration))
         {
-            _nameCounter[operatorName][state]++;
+            _nameCounter[operatorName][state] += session.Duration;
         }
     }
 

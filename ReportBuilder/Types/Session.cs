@@ -15,5 +15,5 @@ public record Session(
     string? Project,
     string Operator,
     string State,
-    int Duration);
+    int Duration) : SessionDates(DateStart, DateEnd);
 
