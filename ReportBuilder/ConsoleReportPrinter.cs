@@ -3,7 +3,7 @@
 namespace ReportBuilder;
 
 /// <summary>
-/// Создаёт.
+/// Выводит данные в консоль.
 /// </summary>
 public class ConsoleReportPrinter : IReportPrinter
 {
